@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContactsThunk, deleteContactsThunk, addContactsThunk } from './operations';
 
-// const handlePending = state => {
-//   state.error = null;
-// }
-
 const contactIinitialState = {
   contacts: [],
 };
