@@ -33,7 +33,7 @@ export const contactsSlice = createSlice({
       .addCase(deleteContactsThunk.pending, handlePending)
       .addCase(deleteContactsThunk.fulfilled, (state, action) => {
         const contactIndex = state.contacts.findIndex(
-          contact => contact.id === action.payload
+          contact => contact.id === action.payload.id
         );
         state.contacts.splice(contactIndex, 1);
       })
@@ -47,6 +47,5 @@ export const contactsSlice = createSlice({
       .addCase(addContactsThunk.rejected, handleRejected),
 });
 
-export const { addContact, deleteContacts, fetchContacts } =
-  contactsSlice.actions;
+
 export const contactsReducer = contactsSlice.reducer;

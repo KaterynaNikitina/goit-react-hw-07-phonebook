@@ -17,7 +17,7 @@ export const ContactList = () => {
   return (
     <List>
       {filteredContacts.map(({ id, name, phone }) => (
-        <ListItem key={id} name={name} number={phone}  id={id}/>
+        <ListItem key={id} name={name} phone={phone}  id={id}/>
       ))}
     </List>
   );

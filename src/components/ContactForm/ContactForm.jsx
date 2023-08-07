@@ -6,7 +6,7 @@ import { addContactsThunk } from 'redux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'phone':
+        setPhone(value);
         break;
       default:
         console.log('This does not exist');
@@ -27,7 +27,7 @@ export const ContactForm = () => {
   }
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   const handleSubmit = e => {
@@ -40,7 +40,7 @@ export const ContactForm = () => {
         alert(`${name} is already in contacts`);
         return;
       }
-      dispatch(addContactsThunk({ name, number }));
+      dispatch(addContactsThunk({ name, phone }));
     reset ();
   };
 
@@ -61,8 +61,8 @@ export const ContactForm = () => {
           Tel. number
           <Input
             type='tel'
-            name='number'
-            value={number}
+            name='phone'
+            value={phone}
             onChange={handleChange}
             placeholder='enter phone number'
             required

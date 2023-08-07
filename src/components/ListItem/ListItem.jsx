@@ -4,11 +4,11 @@ import { deleteContactsThunk } from 'redux/operations';
 import PropTypes from 'prop-types';
 import { Item, ItemBtn } from './ListItem.styled';
 
-export const ListItem = ({ id, name, number }) => {
+export const ListItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
   return (
     <Item>
-      {name}: {number}
+      {name}: {phone}
       <ItemBtn
         onClick={() => {
           dispatch(deleteContactsThunk(id))
@@ -23,5 +23,5 @@ export const ListItem = ({ id, name, number }) => {
 ListItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };
