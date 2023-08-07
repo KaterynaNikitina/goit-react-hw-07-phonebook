@@ -1,23 +1,18 @@
 import { ListItem } from 'components/ListItem/ListItem';
 import { useDispatch, useSelector} from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectFilteredContacts } from 'redux/selectors';
 import { List } from './ContactList.styled';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/operations';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);  
-  const filter = useSelector(getFilter); 
+
+  const filteredContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
   useEffect (() => {
     dispatch(fetchContactsThunk())
   }, [dispatch])
-
-  const formattedFilter = filter.toLowerCase();
-  const filteredContacts = contacts.length > 0
-  ? (contacts.filter(contact => contact.name.toLowerCase().includes(formattedFilter)))
-  : [];
 
   return (
     <List>
